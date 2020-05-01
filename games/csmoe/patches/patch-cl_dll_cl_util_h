@@ -1,0 +1,17 @@
+$OpenBSD$
+
+Index: cl_dll/cl_util.h
+--- cl_dll/cl_util.h.orig
++++ cl_dll/cl_util.h
+@@ -22,6 +22,11 @@
+ #define FALSE 0
+ #endif
+ 
++#ifdef __OpenBSD__
++#define stricmp strcasecmp
++#define strnicmp strncasecmp
++#endif
++
+ extern cvar_t *hud_textmode;
+ 
+ #ifdef _MSC_VER

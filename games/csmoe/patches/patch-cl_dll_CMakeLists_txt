@@ -1,0 +1,21 @@
+$OpenBSD$
+
+Index: cl_dll/CMakeLists.txt
+--- cl_dll/CMakeLists.txt.orig
++++ cl_dll/CMakeLists.txt
+@@ -31,7 +31,7 @@ set (CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -stdlib=libc++"
+ elseif(MSVC)
+ set (CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS}")
+ else()
+-set (CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -static-libstdc++")
++set (CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS}")
+ endif()
+ set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} ")
+ set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
+@@ -290,4 +290,4 @@ endif()
+ 
+ if(NOT XASH_STATIC_GAMELIB)
+ 	install( TARGETS ${CLIENT_LIBRARY} DESTINATION ${CMAKE_INSTALL_PREFIX}/${GAMEDIR}/${CLIENT_INSTALL_DIR} )
+-endif()
+\ No newline at end of file
++endif()

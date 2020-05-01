@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: dlls/weapons.cpp
+--- dlls/weapons.cpp.orig
++++ dlls/weapons.cpp
+@@ -1862,7 +1862,7 @@ BOOL CWeaponBox::PackWeapon(CBasePlayerItem *pWeapon)
+ 	pWeapon->pev->solid = SOLID_NOT;
+ 	pWeapon->pev->effects = EF_NODRAW;
+ 	pWeapon->pev->modelindex = 0;
+-	pWeapon->pev->model = (int)NULL;
++	pWeapon->pev->model = (uintptr_t)NULL;
+ 	pWeapon->pev->owner = ENT(pev);
+ 	pWeapon->SetThink(NULL);
+ 	pWeapon->SetTouch(NULL);

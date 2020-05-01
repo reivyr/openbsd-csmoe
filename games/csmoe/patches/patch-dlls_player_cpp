@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: dlls/player.cpp
+--- dlls/player.cpp.orig
++++ dlls/player.cpp
+@@ -6847,7 +6847,7 @@ void CBasePlayer::DropPlayerItem(const char *pszItemNa
+ 					pLinkWeapon->pev->solid = SOLID_NOT;
+ 					pLinkWeapon->pev->effects = EF_NODRAW;
+ 					pLinkWeapon->pev->modelindex = 0;
+-					pLinkWeapon->pev->model = (int)NULL;
++					pLinkWeapon->pev->model = (uintptr_t)NULL;
+ 					pLinkWeapon->pev->owner = ENT(pev);
+ 					pLinkWeapon->SetThink(NULL);
+ 					pLinkWeapon->SetTouch(NULL);

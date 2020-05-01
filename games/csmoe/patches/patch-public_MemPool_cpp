@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: public/MemPool.cpp
+--- public/MemPool.cpp.orig
++++ public/MemPool.cpp
+@@ -8,7 +8,7 @@
+ #ifdef __APPLE__ 
+ #include <malloc/malloc.h>
+ #else
+-#include <malloc.h>
++#include <sys/malloc.h>
+ #endif
+ 
+ #include "MemPool.h"

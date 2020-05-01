@@ -1,0 +1,17 @@
+$OpenBSD$
+
+Index: cl_dll/cl_dll.h
+--- cl_dll/cl_dll.h.orig
++++ cl_dll/cl_dll.h
+@@ -42,6 +42,11 @@ typedef int (*pfnUserMsgHook)(const char *pszName, int
+ #include "render_api.h"
+ #include "mobility_int.h"
+ 
++#ifdef __OpenBSD__
++#define stricmp strcasecmp
++#define strnicmp strncasecmp
++#endif
++
+ extern "C"
+ {
+ int        DLLEXPORT Initialize( cl_enginefunc_t *pEnginefuncs, int iVersion );

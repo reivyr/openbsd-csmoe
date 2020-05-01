@@ -1,0 +1,23 @@
+$OpenBSD$
+
+Index: dlls/common.h
+--- dlls/common.h.orig
++++ dlls/common.h
+@@ -40,6 +40,17 @@
+ #define SIZEBUF_ALLOW_OVERFLOW		BIT(0)
+ #define SIZEBUF_OVERFLOWED		BIT(1)
+ 
++#ifdef __OpenBSD__
++#define stricmp strcasecmp
++#define strnicmp strncasecmp
++#define _stricmp strcasecmp
++#define _strnicmp strncasecmp
++#define _close close
++#define _write write
++#define _strdup strdup
++#define _snprintf snprintf
++#endif
++
+ /* <6ae> ../common/common.h:82 */
+ /*typedef struct sizebuf_s
+ {

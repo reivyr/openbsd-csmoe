@@ -1,0 +1,23 @@
+$OpenBSD$
+
+Index: pm_shared/pm_shared.cpp
+--- pm_shared/pm_shared.cpp.orig
++++ pm_shared/pm_shared.cpp
+@@ -163,7 +163,7 @@ void PM_SortTextures(void)
+ 	{
+ 		for (j = i + 1; j < gcTextures; j++)
+ 		{
+-			if (stricmp(grgszTextureName[i], grgszTextureName[j]) > 0)
++			if (strcasecmp(grgszTextureName[i], grgszTextureName[j]) > 0)
+ 			{
+ 				// Swap
+ 				//
+@@ -256,7 +256,7 @@ char PM_FindTextureType(char *name)
+ 	{
+ 		pivot = (left + right) / 2;
+ 
+-		val = strnicmp(name, grgszTextureName[pivot], CBTEXTURENAMEMAX - 1);
++		val = strncasecmp(name, grgszTextureName[pivot], CBTEXTURENAMEMAX - 1);
+ 		if (val == 0)
+ 		{
+ 			return grgchTextureType[pivot];

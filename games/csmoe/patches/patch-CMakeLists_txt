@@ -1,0 +1,30 @@
+$OpenBSD$
+
+Index: CMakeLists.txt
+--- CMakeLists.txt.orig
++++ CMakeLists.txt
+@@ -26,11 +26,11 @@ elseif(MSVC)
+ 	set (CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} -O1")
+ 	set (CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -O1")
+ else()
+-	add_compile_options( -Wall -Wextra -Wno-unused-parameter -Wl,--no-undefined )
++	add_compile_options( -Wall -Wextra -Wno-unused-parameter ${LD_NO_UNDEFINED} )
+ 	set (CMAKE_C_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb")
+-	set (CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}  -O3")
++	set (CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}  -O2")
+ 	set (CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} -Os")
+-	set (CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -ggdb -O3")
++	set (CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -ggdb -O2")
+ endif()
+ 
+ if(CMAKE_COMPILER_IS_GNUCXX)
+@@ -40,6 +40,9 @@ endif()
+ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+ 	add_compile_options(-Wno-unused-private-field)
+ endif()
++
++include_directories(/usr/X11R6/include)
++link_directories(/usr/X11R6/lib)
+ 
+ set(SDL2_PATH ${CMAKE_SOURCE_DIR}/SDL2 CACHE PATH "SDL2 path")
+ 

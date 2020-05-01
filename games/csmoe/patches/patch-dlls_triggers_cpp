@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: dlls/triggers.cpp
+--- dlls/triggers.cpp.orig
++++ dlls/triggers.cpp
+@@ -1110,7 +1110,7 @@ void CTriggerVolume::Spawn()
+ 	// set size and link into world
+ 	SET_MODEL(ENT(pev), STRING(pev->model));
+ 
+-	pev->model = (int)NULL;
++	pev->model = (uintptr_t)NULL;
+ 	pev->modelindex = 0;
+ }
+ 
